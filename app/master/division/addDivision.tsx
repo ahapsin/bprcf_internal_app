@@ -23,11 +23,13 @@ const AddDivision = () => {
                         <h3 className='font-bold text-lg'>Head</h3>
                     </div>
                     <div className='container mx-auto p-4'>
-                        <div className='grid-cols-1 md:grid-cols-auto lg:grid-cols-auto gap-4 md:flex sm:grid'>
-                            <Input label='Nama Divisi' tipe='text' />
-                            <Input label='Upper Level' tipe='text' />
-                            <Input label='Description' tipe='text' />
-                        </div>
+                        <form>
+                            <div className='grid-cols-1 md:grid-cols-auto lg:grid-cols-auto gap-4 md:flex sm:grid'>
+                                <Input label='Nama Divisi' tipe='text' />
+                                <Input label='Upper Level' tipe='text' />
+                                <Input label='Description' tipe='text' />
+                            </div>
+                        </form>
                     </div>
                     <div className='modal-action bg-slate-50'>
                         <div className='p-4'>
