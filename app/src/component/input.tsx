@@ -1,10 +1,12 @@
-type InputProps = {
+import React from "react"
+
+interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
     label: string
     tipe: string
     placeholder?: string
 }
 
-const Input = ({ label, tipe, placeholder }: InputProps) => {
+const Input = ({ label, tipe, placeholder, onChange }: InputProps) => {
     return (
         <div className='form-control'>
             <label className='label'>

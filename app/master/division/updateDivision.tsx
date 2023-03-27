@@ -1,12 +1,20 @@
 "use client"
 
+import { IconEdit } from "@tabler/icons-react"
 import { useRouter } from "next/navigation"
 import { SyntheticEvent, useState } from "react"
 
-const AddDivision = () => {
-    const [masterName, setMasterName] = useState("")
-    const [upperLevel, setUpperLevel] = useState("")
-    const [description, setDescription] = useState("")
+type Division = {
+    ID: string
+    MASTER_NAME: string
+    UPPER_LEVEL: string
+    DESCRIPTION: string
+}
+
+const UpdateDivision = (division: Division) => {
+    const [masterName, setMasterName] = useState(division.MASTER_NAME)
+    const [upperLevel, setUpperLevel] = useState(division.UPPER_LEVEL)
+    const [description, setDescription] = useState(division.DESCRIPTION)
     const [modal, setModal] = useState(false)
     const [isMutating, setIsMutating] = useState(false)
 
@@ -17,31 +25,33 @@ const AddDivision = () => {
         setModal(!modal)
     }
 
-    async function handleSubmit(e: SyntheticEvent) {
+    async function handleUpdate(e: SyntheticEvent) {
         e.preventDefault()
         setIsMutating(true)
-        await fetch("http://8a73085df21a.sn.mynetname.net:8080/api/division", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                master_name: masterName,
-                upper_level: upperLevel,
-                description: description,
-            }),
-        })
+        await fetch(
+            `http://8a73085df21a.sn.mynetname.net:8080/api/division/${division.ID}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    master_name: masterName,
+                    upper_level: upperLevel,
+                    description: description,
+                }),
+            }
+        )
         setIsMutating(false)
-        setMasterName("")
-        setUpperLevel("")
-        setDescription("")
+
         router.refresh()
         setModal(false)
     }
     return (
         <>
             <button className='btn btn-sm' onClick={handleChange}>
-                Tambah
+                <IconEdit />
+                Edit
             </button>
             <input
                 type='checkbox'
@@ -57,10 +67,12 @@ const AddDivision = () => {
                     >
                         ✕
                     </button>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleUpdate}>
                         {" "}
                         <div className='p-4'>
-                            <h3 className='font-bold text-lg'>Head</h3>
+                            <h3 className='font-bold text-lg'>
+                                Edit {division.MASTER_NAME}
+                            </h3>
                         </div>
                         <div className='container mx-auto p-4'>
                             <div className='grid-cols-1 md:grid-cols-auto lg:grid-cols-auto gap-4 md:flex sm:grid'>
@@ -128,14 +140,14 @@ const AddDivision = () => {
                                         type='submit'
                                         className='btn btn-sm btn-primary'
                                     >
-                                        Simpan
+                                        Ubah
                                     </button>
                                 ) : (
                                     <button
                                         type='submit'
                                         className='btn btn-sm loading'
                                     >
-                                        Menyimpan ...
+                                        Mengubah ...
                                     </button>
                                 )}
                             </div>
@@ -147,4 +159,4 @@ const AddDivision = () => {
     )
 }
 
-export default AddDivision
+export default UpdateDivision

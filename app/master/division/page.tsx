@@ -1,10 +1,8 @@
+import ButtonIcon from "@/app/src/component/button"
 import { IconEdit, IconTrashOff } from "@tabler/icons-react"
 import AddDivision from "./addDivision"
-import ButtonIcon from "@/app/src/component/button"
-import Swap from "@/app/src/component/swap"
-import Navbar from "@/app/src/component/navbar"
-import BottomNavigation from "@/app/src/component/bottomNavigation"
-import Drawer from "@/app/src/component/drawer"
+import DeleteDivision from "./deleteDivision"
+import UpdateDivision from "./updateDivision"
 
 export const metadata = {
     title: "Division",
@@ -50,13 +48,12 @@ const DivisionList = async () => {
                             <td>{division.UPPER_LEVEL}</td>
                             <td>{division.DESCRIPTION}</td>
                             <td>
-                                <ButtonIcon>
-                                    <IconEdit /> edit
-                                </ButtonIcon>
-                                <ButtonIcon>
-                                    <IconTrashOff />
-                                    hapus
-                                </ButtonIcon>
+                                <DeleteDivision {...division} />
+                                <UpdateDivision {...division} />
+                                {/* <ButtonIcon>
+                                    <IconEdit />
+                                    Edit
+                                </ButtonIcon> */}
                             </td>
                         </tr>
                     ))}
