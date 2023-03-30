@@ -1,5 +1,3 @@
-import ButtonIcon from "@/app/src/component/button"
-import { IconEdit, IconTrashOff } from "@tabler/icons-react"
 import AddDivision from "./addDivision"
 import DeleteDivision from "./deleteDivision"
 import UpdateDivision from "./updateDivision"

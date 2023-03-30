@@ -1,12 +1,18 @@
-import React from "react";
+import React from "react"
 
-interface Props{
+interface Props {
     className?: string
     children: React.ReactNode
 }
 
-const ButtonIcon = ({children, className}:Props) => {
-    return ( <button className={`${className} [&>svg]:w-4 font font-semibold btn btn-sm gap-2 mx-1`}>{children}</button> );
+const ButtonIcon = ({ children, className }: Props) => {
+    return (
+        <button
+            className={`${className} font font-semibold btn-sm text-slate-300 hover:text-slate-500 gap-2`}
+        >
+            {children}
+        </button>
+    )
 }
 
-export default ButtonIcon;
+export default ButtonIcon
