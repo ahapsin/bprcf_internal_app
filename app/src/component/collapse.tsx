@@ -1,7 +1,6 @@
 import {
     IconAxisX,
     IconBolt,
-    IconCircleChevronDown,
     IconSquareRoundedPlusFilled,
 } from "@tabler/icons-react"
 
@@ -17,9 +16,15 @@ const CollapseMenu = () => {
                     <IconSquareRoundedPlusFilled size={16} />
                 </div>
             </div>
-            <div className='collapse-content flex gap-2 pl-12'>
-                <IconAxisX size={12} className='text-slate-200' />
-                <p>hello</p>
+            <div className='collapse-content pl-10'>
+                <div className='flex gap-2'>
+                    <IconAxisX size={15} className='text-slate-600' />
+                    <p>hello</p>
+                </div>
+                <div className='flex gap-2'>
+                    <IconAxisX size={15} className='text-slate-600' />
+                    <p>hello</p>
+                </div>
             </div>
         </div>
     )

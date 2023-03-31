@@ -1,12 +1,16 @@
-import { IconLayoutSidebarLeftCollapse, IconList } from "@tabler/icons-react"
+import { IconLayoutSidebarLeftCollapse } from "@tabler/icons-react"
 import ButtonIcon from "./button"
+import { useRecoilValue } from "recoil"
+import { authUser } from "@/app/store"
 
 const Navbar = () => {
+    const user = useRecoilValue(authUser)
+    console.log(user)
     return (
         <div className='navbar bg-base-100 shadow-md px-4'>
             <div className='flex-1'>
                 <ButtonIcon>
-                    <IconLayoutSidebarLeftCollapse />
+                    <IconLayoutSidebarLeftCollapse /> {user}
                 </ButtonIcon>
             </div>
             <div className='flex-none'>
@@ -16,7 +20,7 @@ const Navbar = () => {
                         className='btn btn-ghost btn-circle avatar'
                     >
                         <div className='w-10 rounded-full'>
-                            <img src='https://fajar.co.id/wp-content/uploads/2017/11/Jutsu-Amaterasu.jpg' />
+                            <img src='https://t3.ftcdn.net/jpg/05/77/38/04/360_F_577380441_Ha6PRweRTLm4rPhKjAO91KdfQBUtXNtM.jpg' />
                         </div>
                     </label>
                     <ul

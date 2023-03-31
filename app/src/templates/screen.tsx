@@ -12,7 +12,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
 }
 const Content = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className='flex h-[calc(100vh-65px)] w-full items-center place-content-center'>
+        <div className='flex h-[calc(100vh-65px)] w-full text-slate-500'>
             {children}
         </div>
     )
