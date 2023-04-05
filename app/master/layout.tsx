@@ -1,5 +1,5 @@
 import React from "react"
-import Screen from "../src/templates/screen"
+import Screen from "../src/component/screen"
 import Navbar from "../src/component/navbar"
 import Sidebar from "../src/component/sidebar"
 

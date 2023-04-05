@@ -8,7 +8,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
     return <div className='max-h-[65px]'>{children}</div>
 }
 const Sidebar = ({ children }: { children: React.ReactNode }) => {
-    return <div className='flex min-w-[65px]'>{children}</div>
+    return <div className='flex'>{children}</div>
 }
 const Content = ({ children }: { children: React.ReactNode }) => {
     return (

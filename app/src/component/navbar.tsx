@@ -1,16 +1,26 @@
-import { IconLayoutSidebarLeftCollapse } from "@tabler/icons-react"
+import {
+    IconLayoutSidebarLeftCollapse,
+    IconLayoutSidebarRight,
+    IconLayoutSidebarRightCollapse,
+} from "@tabler/icons-react"
 import ButtonIcon from "./button"
-import { useRecoilValue } from "recoil"
-import { authUser } from "@/app/store"
+import { useRecoilState } from "recoil"
+import { menuSide } from "@/app/store"
 
 const Navbar = () => {
-    const user = useRecoilValue(authUser)
-    console.log(user)
+    const [vmenu, setVmenu] = useRecoilState(menuSide)
+    const handleClick = () => {
+        vmenu ? setVmenu(false) : setVmenu(true)
+    }
     return (
         <div className='navbar bg-base-100 shadow-md px-4'>
             <div className='flex-1'>
-                <ButtonIcon>
-                    <IconLayoutSidebarLeftCollapse /> {user}
+                <ButtonIcon handleClick={handleClick}>
+                    {vmenu ? (
+                        <IconLayoutSidebarLeftCollapse />
+                    ) : (
+                        <IconLayoutSidebarRightCollapse />
+                    )}
                 </ButtonIcon>
             </div>
             <div className='flex-none'>

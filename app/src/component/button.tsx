@@ -3,14 +3,16 @@ import React from "react"
 interface Props {
     className?: string
     children: React.ReactNode
+    handleClick: () => void
 }
 
-const ButtonIcon = ({ children, className }: Props) => {
+const ButtonIcon = (props: Props) => {
     return (
         <button
-            className={`${className} p-2 rounded-lg font font-semibold btn-sm text-slate-600 hover:text-slate-500 gap-2 flex items-center`}
+            onClick={props.handleClick}
+            className={`${props.className} p-2 rounded-lg font font-semibold btn-sm text-slate-600 hover:text-slate-500 gap-2 flex items-center`}
         >
-            {children}
+            {props.children}
         </button>
     )
 }
