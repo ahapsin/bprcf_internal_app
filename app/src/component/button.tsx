@@ -3,7 +3,7 @@ import React from "react"
 interface Props {
     className?: string
     children: React.ReactNode
-    handleClick: () => void
+    handleClick?: () => void
 }
 
 const ButtonIcon = (props: Props) => {

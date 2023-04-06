@@ -1,160 +1,47 @@
-import { IconDevices, IconFilter, IconPlus } from "@tabler/icons-react"
+import { IconBrandWhatsapp, IconSend } from "@tabler/icons-react"
 import ButtonIcon from "../src/component/button"
 import Section from "../src/component/section"
+import SendoutList from "./listWaiting"
 
-const Wa = () => {
+async function getStatusWa() {
+    const res = await fetch("http://8a73085df21a.sn.mynetname.net:8090/auth", {
+        cache: "no-store",
+        next: { revalidate: 10 },
+    })
+    return res.json()
+}
+
+const Wa = async () => {
+    const statusWa = await getStatusWa()
     return (
         <Section>
             <Section.Block>
                 <Section.Head>
-                    head
+                    WhatsaApp Send Message
+                    <pre className='text-xs'></pre>
                     <Section.Group>
-                        <ButtonIcon className='bg-slate-50'>
-                            <IconFilter /> Device Conected
-                        </ButtonIcon>
-                        <ButtonIcon className='bg-green-200'>
-                            <IconDevices /> Device Conected
-                        </ButtonIcon>
-                        <ButtonIcon className='text-blue-500'>
-                            <IconPlus /> Tambah data
+                        {statusWa.auth === "whatsapp ready" && (
+                            <ButtonIcon className='bg-green-200'>
+                                <IconBrandWhatsapp /> Connected
+                            </ButtonIcon>
+                        )}
+                        {statusWa.auth !== "whatsapp ready" && (
+                            <a
+                                href='http://8a73085df21a.sn.mynetname.net:8090/'
+                                target='blank_'
+                            >
+                                <ButtonIcon className='bg-slate-200'>
+                                    <IconBrandWhatsapp /> unConnected
+                                </ButtonIcon>
+                            </a>
+                        )}
+                        <ButtonIcon>
+                            <IconSend /> blast
                         </ButtonIcon>
                     </Section.Group>
                 </Section.Head>
                 <Section.Body>
-                    Enim amet aliquip tempor in duis elit esse qui do tempor
-                    dolore. Cillum consectetur consequat dolore ea. In velit
-                    esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat. Enim amet aliquip tempor in duis elit esse qui do
-                    tempor dolore. Cillum consectetur consequat dolore ea. In
-                    velit esse labore laboris mollit duis velit qui veniam magna
-                    proident. Enim laborum officia excepteur ut qui pariatur.
-                    Adipisicing non anim ea ullamco veniam aliqua sint esse in
-                    esse dolore irure pariatur. Incididunt duis magna nostrud
-                    cupidatat aliquip ea ad laborum reprehenderit laboris
-                    cupidatat.
+                    <SendoutList />
                 </Section.Body>
             </Section.Block>
         </Section>

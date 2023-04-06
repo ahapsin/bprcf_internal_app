@@ -1,5 +1,4 @@
 "use client"
-
 import { useRouter } from "next/navigation"
 import { SyntheticEvent, useState } from "react"
 
@@ -40,7 +39,7 @@ const AddDivision = () => {
     }
     return (
         <>
-            <button className='btn btn-sm' onClick={handleChange}>
+            <button className='btn btn-sm mb-4' onClick={handleChange}>
                 Tambah
             </button>
             <input

@@ -1,11 +1,10 @@
+import { menuSide } from "@/app/store"
 import {
     IconLayoutSidebarLeftCollapse,
-    IconLayoutSidebarRight,
     IconLayoutSidebarRightCollapse,
 } from "@tabler/icons-react"
-import ButtonIcon from "./button"
 import { useRecoilState } from "recoil"
-import { menuSide } from "@/app/store"
+import ButtonIcon from "./button"
 
 const Navbar = () => {
     const [vmenu, setVmenu] = useRecoilState(menuSide)
@@ -17,11 +16,12 @@ const Navbar = () => {
             <div className='flex-1'>
                 <ButtonIcon handleClick={handleClick}>
                     {vmenu ? (
-                        <IconLayoutSidebarLeftCollapse />
+                        <IconLayoutSidebarLeftCollapse className='text-slate-600/50' />
                     ) : (
-                        <IconLayoutSidebarRightCollapse />
+                        <IconLayoutSidebarRightCollapse className='text-slate-600/50' />
                     )}
                 </ButtonIcon>
+                {/* company brand */}
             </div>
             <div className='flex-none'>
                 <div className='dropdown dropdown-end'>

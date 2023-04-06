@@ -7,10 +7,10 @@ const Sidebar = () => {
     const label = useRecoilValue(menuSide)
     return (
         <div className={` border-r `}>
-            <MenuItem>
+            <MenuItem tooltip={!label ? "dashboard" : null}>
                 <IconLayoutDashboard /> {label ? "Dashboard" : ""}
             </MenuItem>
-            <MenuItem>
+            <MenuItem tooltip={!label ? "master" : null}>
                 <IconFolder /> {label ? "master" : ""}
             </MenuItem>
         </div>

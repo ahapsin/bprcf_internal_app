@@ -5,11 +5,11 @@ const Side = ({ children }: { children: React.ReactNode }) => {
     return <div className='flex gap-2'>{children}</div>
 }
 const Block = ({ children }: { children: React.ReactNode }) => {
-    return <div className='gap-2'>{children}</div>
+    return <div className='gap-2 w-full'>{children}</div>
 }
 const Head = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className='px-4 py-6 text-2xl items-center flex place-content-between'>
+        <div className='px-4 w-full py-6 text-2xl items-center flex place-content-between'>
             {children}
         </div>
     )
